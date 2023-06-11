@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5de69e05f4154d24aaca6d6f143fe79f" Name="Diagram1">
+        <EntityTypeShape EntityType="WorkFlowXModel.Cliente" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Departamentos" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Equipos" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Proyectos" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Proyectos_Equipos" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Tareas" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkFlowXModel.Trabajadores" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Cliente_TO_Proyectos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Departamentos_TO_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Trabajadores_TO_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Equipos_TO_Proyectos_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Equipos_TO_Trabajadores" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Trabajadores_TO_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Proyectos_TO_Proyectos_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Proyectos_TO_Tareas" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Tareas_TO_Tareas" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Trabajadores_TO_Tareas" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkFlowXModel.FK_Trabajadores_TO_Trabajadores" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
