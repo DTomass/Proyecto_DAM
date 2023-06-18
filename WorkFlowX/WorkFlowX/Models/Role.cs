@@ -11,5 +11,9 @@ namespace WorkFlowX.Models
         [Key]
         public int Id { get; set; }
         public string RoleName { get; set; }
+
+        #region Collections
+        public List<License> Licenses{ get; set; }
+        #endregion
     }
 }

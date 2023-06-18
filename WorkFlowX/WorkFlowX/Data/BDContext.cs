@@ -23,5 +23,7 @@ namespace WorkFlowX.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Area> Areas { get; set; }
+        public DbSet<License> Licenses { get; set; }
     }
 }

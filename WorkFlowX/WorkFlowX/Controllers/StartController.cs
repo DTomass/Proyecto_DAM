@@ -4,6 +4,7 @@ using WorkFlowX.Data;
 using WorkFlowX.Models;
 using WorkFlowX.Services;
 using System.Data.Entity;
+using WorkFlowX.Filters;
 
 namespace WorkFlowX.Controllers
 {
@@ -49,6 +50,7 @@ namespace WorkFlowX.Controllers
             return View();
         }
 
+        [AuthorizeUser(license: 1)]
         public ActionResult Register()
         {
             return View();
