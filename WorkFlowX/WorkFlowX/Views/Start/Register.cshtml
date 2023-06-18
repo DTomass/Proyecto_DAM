@@ -14,31 +14,61 @@
 <body>
     <div class="row justify-content-center mt-5">
 
-        <div class="col-5">
+        <div class="col">
 
             <div class="card">
-                <div class="card-header"><h3 class="text-center">Registrar cuenta</h3></div>
+                <div class="card-header"><h3 class="text-center">New User</h3></div>
                 <div class="card-body">
 
                     @if (ViewBag.Creado == null)
                     {
                         <form action="@Url.Action("Register","Start")" method="post">
+                            <div class="row">
+                                <div class="mb-3 col-4">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" name="UserName" value="@(ViewBag.UserName !=null ? ViewBag.UserName : "")" required />
+                                </div>
+                                <div class="mb-3 col-4">
+                                    <label>Surname</label>
+                                    <input type="text" class="form-control" name="UserSurname" value="@(ViewBag.UserSurname !=null ? ViewBag.UserSurname : "")" />
+                                </div>
 
-                            <div class="mb-3">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" name="UserName" value="@(ViewBag.Nombre !=null ? ViewBag.Nombre : "")" required />
+                                <div class="mb-3 col-4">
+                                    <label>Phone</label>
+                                    <input type="number" class="form-control" name="UserPhone" value="@(ViewBag.UserPhone !=null ? ViewBag.UserPhone : "")" />
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label>Correo</label>
-                                <input type="email" class="form-control" name="UserMail" value="@(ViewBag.Correo !=null ? ViewBag.Correo : "")" required />
+                            <hr class="hr"/>
+                            <br />
+                            <div class="row">
+                                <div class="mb-3 col-3">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" name="UserMail" value="@(ViewBag.UserMail !=null ? ViewBag.UserMail : "")" required />
+                                </div>
+                                <div class="mb-3 col-3">
+                                    <label>Gender</label>
+                                    <input type="text" class="form-control" name="Gender" value="@(ViewBag.Gender !=null ? ViewBag.Gender : "")" required />
+                                </div>
+                                <div class="mb-3 col-3">
+                                    <label>BirthDate</label>
+                                    <input type="date" class="form-control" name="Birthdate" value="@(ViewBag.Birthdate !=null ? ViewBag.Birthdate : "")" required />
+                                </div>
+                                <div class="mb-3 col-3">
+                                    <label>Adress</label>
+                                    <input type="text" class="form-control" name="Adress" value="@(ViewBag.Adress !=null ? ViewBag.Adress : "")" required />
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label>Contraseña</label>
-                                <input type="password" class="form-control" name="UserPassword" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Confirmar Contraseña</label>
-                                <input type="password" class="form-control" name="ConfirmPassword" required />
+                            <hr class="hr"/>
+                            <br />
+                            <div class="row align-self-center">
+                                <div class="mb-3 col-6">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="UserPassword" required />
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control" name="ConfirmPassword" required />
+                                </div>
                             </div>
 
                             @if (ViewBag.Mensaje != null)
@@ -50,8 +80,7 @@
 
                             <div class="mb-3">
                                 <div class="d-grid">
-                                    <button class="btn btn-primary" type="submit">Registrarse </button>
-                                    <a class="btn btn-link" href="@Url.Action("Login","Start")">Ya tienes una cuenta? Inicia sesion</a>
+                                    <button class="btn btn-primary" type="submit">Register </button>
                                 </div>
                             </div>
 
@@ -62,7 +91,7 @@
                     {
                         <div class="alert alert-success">
                             <p>@ViewBag.Mensaje</p>
-                            <a class="btn btn-success" href="@Url.Action("Login","Start")">Ingresar</a>
+                            <a class="btn btn-success" href="@Url.Action("Login","Start")">Register</a>
                         </div>
                     }
 

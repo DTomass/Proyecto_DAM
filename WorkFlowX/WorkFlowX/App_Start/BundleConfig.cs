@@ -25,6 +25,19 @@ namespace WorkFlowX
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/Plugins/css").Include(
+                        "~/Content/datatable/css/jquery.dataTables.min.css",
+                        "~/Content/datatable/css/responsive.dataTables.min.css",
+                        "~/Content/datatable/css/buttons.dataTables.min.css",
+                        "~/Content/fontawesome-free/css/all.css"
+                        ));
+            bundles.Add(new ScriptBundle("~/bundles/Plugins/js").Include(
+                        "~/Content/datatable/js/jquery.dataTables.min.js",
+                        "~/Content/datatable/js/dataTables.responsive.min.js",
+                        "~/Content/datatable/js/dataTables.buttons.min.js",
+                        "~/Content/fontawesome-free/js/all.js"
+                        ));
         }
     }
 }

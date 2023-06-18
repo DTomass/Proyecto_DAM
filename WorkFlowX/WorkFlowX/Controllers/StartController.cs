@@ -71,6 +71,8 @@ namespace WorkFlowX.Controllers
                 user.Token = UtilityService.GenerateToken();
                 user.NeedRestore = false;
                 user.HasConfirmation = false;
+                user.RoleId = 1;
+                user.CompanyId = 1;
                 _context.Users.Add(user);
                 bool response = _context.SaveChanges() > 0;
 
