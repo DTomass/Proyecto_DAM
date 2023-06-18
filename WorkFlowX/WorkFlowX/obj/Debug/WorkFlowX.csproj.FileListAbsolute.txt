@@ -52,6 +52,8 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\r
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Antlr3.Runtime.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\BouncyCastle.Cryptography.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.SqlServer.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MailKit.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Microsoft.Web.Infrastructure.dll
@@ -71,6 +73,8 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\S
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Web.WebPages.Razor.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\WebGrease.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\BouncyCastle.Cryptography.xml
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.xml
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.SqlServer.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MailKit.pdb
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MailKit.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MailKit.dll.config

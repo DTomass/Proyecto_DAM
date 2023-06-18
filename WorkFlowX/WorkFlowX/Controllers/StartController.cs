@@ -1,12 +1,21 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using WorkFlowX.Data;
 using WorkFlowX.Models;
 using WorkFlowX.Services;
+using System.Data.Entity;
 
 namespace WorkFlowX.Controllers
 {
     public class StartController : Controller
     {
+        public Context _context = new Context();
+
+        public StartController()
+        {
+            _context.Database.CreateIfNotExists();
+        }
+
         // GET: Start
         public ActionResult Login()
         {
@@ -16,18 +25,20 @@ namespace WorkFlowX.Controllers
         [HttpPost]
         public ActionResult Login(string mail, string password)
         {
-            DtoUser user = DBUser.Validate(mail, UtilityService.ConvertToSHA256(password));
+            var hashPassword = UtilityService.ConvertToSHA256(password);
+            User user = _context.Users.FirstOrDefault(us => us.UserMail == mail && us.UserPassword == hashPassword);
             if (user != null)
             {
-                if(!user.Confirmation)
+                if(!user.HasConfirmation)
                 {
                     ViewBag.Mensaje = $"Please confirm your mail at {mail}";
-                }else if(user.Restore)
+                }else if(user.NeedRestore)
                 {
                     ViewBag.Mensaje = $"Please restore your password at {mail}";
                 }
                 else
                 {
+                    Session["User"] = user;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -44,7 +55,7 @@ namespace WorkFlowX.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(DtoUser user)
+        public ActionResult Register(User user)
         {
             if (user.UserPassword != user.ConfirmPassword)
             {
@@ -54,13 +65,14 @@ namespace WorkFlowX.Controllers
                 return View();
             }
 
-            if (DBUser.Find(user.UserMail) == null)
+            if (_context.Users.FirstOrDefault(us => us.UserMail == user.UserMail) == null)
             {
                 user.UserPassword = UtilityService.ConvertToSHA256(user.UserPassword);
                 user.Token = UtilityService.GenerateToken();
-                user.Restore = false;
-                user.Confirmation = false;
-                bool response = DBUser.Register(user);
+                user.NeedRestore = false;
+                user.HasConfirmation = false;
+                _context.Users.Add(user);
+                bool response = _context.SaveChanges() > 0;
 
                 if (response)
                 {
@@ -100,7 +112,16 @@ namespace WorkFlowX.Controllers
 
         public ActionResult Confirm(string token)
         {
-            ViewBag.Respuesta = DBUser.Confirm(token);
+            User user = _context.Users.FirstOrDefault(Users => Users.Token == token);
+            if (user != null)
+            {
+                user.HasConfirmation = true;
+                ViewBag.Respuesta = _context.SaveChanges() > 0;
+            }
+            else
+            {
+                ViewBag.Mensaje = "No se encontro el usuario";
+            }
             return View();
         }
 
@@ -112,11 +133,12 @@ namespace WorkFlowX.Controllers
         [HttpPost]
         public ActionResult Restore(string mail)
         {
-            DtoUser user = DBUser.Find(mail);
+            User user = _context.Users.FirstOrDefault(us => us.UserMail == mail);
             ViewBag.Correo = mail;
             if (user != null)
             {
-                bool response = DBUser.Restore(1, user.UserPassword, user.Token);
+                user.NeedRestore = true;
+                bool response = _context.SaveChanges() > 0;
 
                 if (response)
                 {
@@ -165,8 +187,10 @@ namespace WorkFlowX.Controllers
                 ViewBag.Mensaje = "Las contraseñas no coinciden";
                 return View();
             }
-
-            bool response = DBUser.Restore(0, UtilityService.ConvertToSHA256(password), token);
+            User user = _context.Users.FirstOrDefault(us => us.Token == token);
+            user.NeedRestore = false;
+            user.UserPassword = UtilityService.ConvertToSHA256(password);
+            bool response = _context.SaveChanges() > 0;
 
             if (response)
                 ViewBag.Restablecido = true;
@@ -174,6 +198,12 @@ namespace WorkFlowX.Controllers
                 ViewBag.Mensaje = "No se pudo actualizar";
 
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }
