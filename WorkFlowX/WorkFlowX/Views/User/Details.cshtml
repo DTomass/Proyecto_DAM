@@ -1,0 +1,132 @@
+﻿@model WorkFlowX.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h4>User</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Company.CompanyName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Company.CompanyName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Role.RoleName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Role.RoleName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserMail)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserMail)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserPassword)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserPassword)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.NeedRestore)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.NeedRestore)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.HasConfirmation)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.HasConfirmation)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Token)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Token)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserSurname)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserSurname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserAddress)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserAddress)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UserPhone)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UserPhone)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Birthdate)
+            </dd>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary" })
+            </p>
+        </dl>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

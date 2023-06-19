@@ -22,7 +22,7 @@ namespace WorkFlowX.Models
         public int CompanyId { get; set; }
         public int RoleId { get; set; }
         public string UserSurname { get; set; }
-        public string Address { get; set; }
+        public string UserAddress { get; set; }
         public string UserPhone { get; set; }
         public string Gender { get; set; }
         public DateTime? Birthdate { get; set; }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WorkFlowX.Data;
 using WorkFlowX.Filters;
@@ -29,23 +26,61 @@ namespace WorkFlowX.Controllers
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var user = _context.Users.Include("Company").Include("Role").FirstOrDefault(u => u.Id == id);
+            return View(user);
         }
 
         [AuthorizeUser(license: 2)]
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = _context.Users.Include("Company").Include("Role").FirstOrDefault(u => u.Id == id);
+
+            // Obtener la lista de compañías disponibles, puedes ajustar esto según tu lógica
+            var companyList = _context.Companies.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.CompanyName
+            });
+
+            var roleList = _context.Roles.Select(r => new SelectListItem
+            {
+                Value = r.Id.ToString(),
+                Text = r.RoleName
+            });
+
+            ViewBag.CompanyList = companyList;
+            ViewBag.RoleList = roleList;
+
+            return View(user);
         }
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, User modifiedUser)
         {
             try
             {
-                // TODO: Add update logic here
+                //Add changes
+                var actualUser = _context.Users.FirstOrDefault(u => u.Id == id);
+                actualUser.UserName = modifiedUser.UserName;
+                actualUser.UserMail = modifiedUser.UserMail;
+                actualUser.UserPassword = modifiedUser.UserPassword;
+                actualUser.NeedRestore = modifiedUser.NeedRestore;
+                actualUser.HasConfirmation = modifiedUser.HasConfirmation;
+                actualUser.Token = modifiedUser.Token;
+                actualUser.CompanyId = modifiedUser.CompanyId;
+                actualUser.RoleId = modifiedUser.RoleId;
+                actualUser.UserSurname = modifiedUser.UserSurname;
+                actualUser.UserPhone = modifiedUser.UserPhone;
+                actualUser.Birthdate = modifiedUser.Birthdate;
+                actualUser.Gender = modifiedUser.Gender;
+                actualUser.UserAddress = modifiedUser.UserAddress;
+                actualUser.Role = _context.Roles.FirstOrDefault(u => u.Id == modifiedUser.RoleId);
+                actualUser.Company = _context.Companies.FirstOrDefault(u => u.Id != modifiedUser.CompanyId);
+
+                _context.SaveChanges();
+
 
                 return RedirectToAction("Index");
             }
@@ -59,7 +94,8 @@ namespace WorkFlowX.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var user = _context.Users.Include("Company").Include("Role").FirstOrDefault(u => u.Id == id);
+            return View(user);
         }
 
         // POST: User/Delete/5
