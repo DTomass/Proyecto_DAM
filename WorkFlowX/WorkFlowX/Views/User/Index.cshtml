@@ -1,17 +1,35 @@
-﻿@model IEnumerable<WorkFlowX.Models.User>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WorkFlowX.Models.User>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Users</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <!-- Enlace de Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/PagedList.css" />
 </head>
 <body>
     <div class="container-fluid">
         <h2>Users</h2>
         <a class="btn btn-success" href="@Url.Action("Register", "Start")"><i class='fas fa-user-plus'></i></a> <!-- Enlace para crear un nuevo usuario -->
-        <div class="table-responsive">
-            <table class="table table-hover">
+        <br />
+        @using (Html.BeginForm("Index", "User", FormMethod.Get)){
+            <div class="row no-gutters">
+                <div class="col-1">
+                    <select name="pageSize" id="pageSize" class="form-control">
+                        <option @if ((int)ViewBag.PageSize == 5) { @Html.Raw("selected") } value="5">5</option>
+                        <option @if ((int)ViewBag.PageSize == 10) { @Html.Raw("selected") } value="10">10</option>
+                        <option @if ((int)ViewBag.PageSize == 15) { @Html.Raw("selected") } value="15">15</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <input type="hidden" name="page" value="@Model.PageNumber" />
+                    <input type="submit" value="Apply" class="btn btn-primary" />
+                </div>
+            </div>
+            }
+        <div class="mb-0">
+            <table class="table table-responsive table-hover mb-0">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -33,8 +51,26 @@
                             <td>@user.UserSurname</td>
                             <td>@user.UserMail</td>
                             <td>@user.UserPhone</td>
-                            <td>@user.NeedRestore</td>
-                            <td>@user.HasConfirmation</td>
+                            <td class="text-center">
+                                @if (user.NeedRestore)
+                                {
+                                    <i class="fa-solid fa-check" style="color: #00ff1e;"></i> <!-- Muestra un tick si NeedConfirmation es true -->
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-xmark" style="color: #ff0000;"></i> <!-- Muestra una x si NeedConfirmation es false -->
+                                }
+                                                    </td>
+                            <td class="text-center">
+                                @if (user.HasConfirmation)
+                                {
+                                    <i class="fa-solid fa-check" style="color: #00ff1e;"></i> <!-- Muestra un tick si NeedConfirmation es true -->
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-xmark" style="color: #ff0000;"></i> <!-- Muestra una x si NeedConfirmation es false -->
+                                }
+                            </td>
                             <td>@user.Company.CompanyName</td>
                             <td>@user.Role.RoleName</td>
                             <td class="d-flex">
@@ -47,6 +83,14 @@
                     }
                 </tbody>
             </table>
+            <div class="row mb-0">
+                @Html.PagedListPager(Model, page => Url.Action("Index", "User", new { page, pageSize = ViewBag.PageSize }))
+            </div>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            <br />
+            Total Users: @Model.TotalItemCount
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> <!-- Enlace de jQuery -->

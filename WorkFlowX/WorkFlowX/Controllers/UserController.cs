@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using PagedList;
+using System.Linq;
 using System.Web.Mvc;
 using WorkFlowX.Data;
 using WorkFlowX.Filters;
@@ -16,10 +17,13 @@ namespace WorkFlowX.Controllers
         }
         [AuthorizeUser(license: 5)]
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index(int? pageSize, int? page)
         {
             var usersList = _context.Users.Include("Company").Include("Role").ToList();
-            return View(usersList);
+            page = pageSize < usersList.Count() ? page ?? 1 : 1;
+            pageSize = pageSize ?? 10;
+            ViewBag.PageSize = pageSize;
+            return View(usersList.ToPagedList(page.Value, pageSize.Value));
         }
 
         [AuthorizeUser(license: 3)]
@@ -104,7 +108,9 @@ namespace WorkFlowX.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var deletedUser = _context.Users.FirstOrDefault(u => u.Id == id);
+                _context.Users.Remove(deletedUser);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }

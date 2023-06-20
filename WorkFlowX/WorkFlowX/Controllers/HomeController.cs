@@ -9,7 +9,6 @@ namespace WorkFlowX.Controllers
 {
     public class HomeController : Controller
     {
-        [AuthorizeUser(license:1)]
         public ActionResult Index()
         {
             return View();

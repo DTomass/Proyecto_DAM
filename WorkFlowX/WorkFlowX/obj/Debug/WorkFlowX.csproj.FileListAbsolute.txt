@@ -108,3 +108,7 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\D
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.csproj.CopyComplete
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.pdb
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.xml
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.xml
