@@ -25,5 +25,7 @@ namespace WorkFlowX.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<License> Licenses { get; set; }
+
+        public System.Data.Entity.DbSet<WorkFlowX.Models.Dtos.RoleDTO> RoleDTOes { get; set; }
     }
 }

@@ -1,0 +1,111 @@
+﻿@model WorkFlowX.Models.Company
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="container">
+        <h4>Edit Company</h4>
+        <hr />
+
+        <div class="row mb-3">
+            <label for="CompanyName" class="col-md-2 col-form-label">Company Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyNif" class="col-md-2 col-form-label">Company NIF</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyNif, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyNif, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyAddress" class="col-md-2 col-form-label">Company Address</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyPhone" class="col-md-2 col-form-label">Company Phone</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyMail" class="col-md-2 col-form-label">Company Mail</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyMail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyMail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyWeb" class="col-md-2 col-form-label">Company Website</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyWeb, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyWeb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyCountry" class="col-md-2 col-form-label">Company Country</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyCountry, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyCountry, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="CompanyCity" class="col-md-2 col-form-label">Company City</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyCity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="RegisterDate" class="col-md-2 col-form-label">Register Date</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="container mt-3">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

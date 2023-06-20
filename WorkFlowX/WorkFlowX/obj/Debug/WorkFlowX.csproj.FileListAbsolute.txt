@@ -112,3 +112,6 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\P
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.xml
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.pdb
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.xml

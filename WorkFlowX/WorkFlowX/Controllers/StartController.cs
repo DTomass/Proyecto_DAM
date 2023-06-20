@@ -53,12 +53,18 @@ namespace WorkFlowX.Controllers
         [AuthorizeUser(license: 1)]
         public ActionResult Register()
         {
+            ViewBag.RoleList = _context.Roles.Select(r => new SelectListItem
+            {
+                Value = r.Id.ToString(),
+                Text = r.RoleName
+            });
             return View();
         }
 
         [HttpPost]
         public ActionResult Register(User user)
         {
+            var currentUser = (User)Session["User"];
             if (user.UserPassword != user.ConfirmPassword)
             {
                 ViewBag.Nombre = user.UserName;
@@ -73,8 +79,8 @@ namespace WorkFlowX.Controllers
                 user.Token = UtilityService.GenerateToken();
                 user.NeedRestore = false;
                 user.HasConfirmation = false;
-                user.RoleId = 1;
-                user.CompanyId = 1;
+                user.Role = _context.Roles.FirstOrDefault(r => r.Id == user.RoleId);
+                user.CompanyId = currentUser.CompanyId;
                 _context.Users.Add(user);
                 bool response = _context.SaveChanges() > 0;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace WorkFlowX.Models
         #endregion
 
         #region Collections
+        [JsonIgnore]
         public List<Role> Roles { get; set; }
         #endregion
     }

@@ -1,0 +1,156 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WorkFlowX.Models.Role>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <!-- Enlace de Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/PagedList.css" />
+    <style>
+        .selected-row {
+            background-color: deepskyblue !important;
+        }
+        /* CSS for clickable rows */
+        tr.clickable-row:hover {
+            cursor: pointer;
+        }
+        table.table-full-width td {
+            width: 100%;
+        }
+        .license-list {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row mr-0">
+            <div class="col-6 mr-0">
+                <h2>Roles</h2>
+                <a class="btn btn-success" href="@Url.Action("Create", "Role")"><i class="fa-solid fa-circle-plus"></i></a> <!-- Enlace para crear un nuevo usuario -->
+                <br />
+                @using (Html.BeginForm("Index", "Role", FormMethod.Get))
+                {
+                    <div class="row no-gutters">
+                        <div class="col-1">
+                            <select name="pageSize" id="pageSize" class="form-control">
+                                <option @if ((int)ViewBag.PageSize == 5) { @Html.Raw("selected") } value="5">5</option>
+                                <option @if ((int)ViewBag.PageSize == 10) { @Html.Raw("selected") } value="10">10</option>
+                                <option @if ((int)ViewBag.PageSize == 15) { @Html.Raw("selected") } value="15">15</option>
+                            </select>
+                        </div>
+                        <div class="col-1">
+                            <input type="hidden" name="page" value="@Model.PageNumber" />
+                            <input type="submit" value="Apply" class="btn btn-primary" />
+                        </div>
+                    </div>
+                }
+                <div class="mb-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var role in Model)
+                            {
+                                <tr data-role-id="@role.Id" class="clickable-row table-full-width">
+                                    <td class="table-name">@role.RoleName</td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary mr-1" href="@Url.Action("Details", "Role", new { id = role.Id })"><i class='fas fa-eye'></i></a>
+                                        <a class="btn btn-warning mr-1" href="@Url.Action("Edit", "Role", new { id = role.Id })"><i class='fas fa-pen'></i></a>
+                                        <a class="btn btn-danger mr-1" href="@Url.Action("Delete", "Role", new { id = role.Id })"><i class='fas fa-trash'></i></a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="row mb-0">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", "Role", new { page, pageSize = ViewBag.PageSize }))
+                    </div>
+                    <br />
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    <br />
+                    Total Users: @Model.TotalItemCount
+
+                </div>
+            </div>
+            <div class="col-6">
+                <br />
+                <br />
+                <br />
+                <h2>Licenses</h2>
+                <div class="mb-0">
+                    <div style="max-height: 200px; overflow-y: auto;">
+                        <table class="table table-hover mb-0" id="licensesTable">
+                            <thead class="sticky-top" style="background-color: white;">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Area</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> <!-- Enlace de jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> <!-- Enlace de Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- Enlace de Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("table tbody tr").click(function () {
+                // Check if the row already has the "selected-row" class
+                var hasSelectedClass = $(this).hasClass("selected-row");
+
+                if (hasSelectedClass) {
+                    // If the row already has the "selected-row" class, remove it
+                    $(this).removeClass("selected-row");
+                    $("#licensesTable tbody").empty();
+                } else {
+                    // Remove "selected-row" class from all other rows
+                    $("table tbody tr").removeClass("selected-row");
+
+                    // Add "selected-row" class to the clicked row
+                    $(this).addClass("selected-row");
+
+                    // Get the ID of the clicked role
+                    var roleId = $(this).data("role-id");
+
+                    // Make an AJAX request to retrieve licenses for the selected role
+                    $.ajax({
+                        url: "@Url.Action("GetLicensesFromRoleId", "Role")", // Replace with the actual URL to fetch licenses for a role
+                        data: { roleId: roleId },
+                        type: "GET",
+                        success: function (data) {
+                            // Clear the licenses table
+                            $("#licensesTable tbody").empty();
+                            // Append the retrieved licenses to the table
+                            $.each(data, function (index, license) {
+                                var licenseRow = $("<tr>").attr("data-role-id", license.Id).addClass("clickable-row table-full-width");
+                                licenseRow.append($("<td>").text(license.Name));
+                                licenseRow.append($("<td>").text(license.AreaName));
+                                $("#licensesTable tbody").append(licenseRow);
+                            });
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -37,6 +37,12 @@
                                     <label>Phone</label>
                                     <input type="number" class="form-control" name="UserPhone" value="@(ViewBag.UserPhone !=null ? ViewBag.UserPhone : "")" />
                                 </div>
+                                <div class="mb-3 col-4">
+                                    <label>Role</label>
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("RoleId", (IEnumerable<SelectListItem>)ViewBag.RoleList, htmlAttributes: new { @class = "form-select" })
+                                    </div>
+                                </div>
                             </div>
                             <hr class="hr"/>
                             <br />
