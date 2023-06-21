@@ -51,6 +51,7 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\r
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\roslyn\VBCSCompiler.exe
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Antlr3.Runtime.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\BouncyCastle.Cryptography.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.SqlServer.dll
@@ -59,6 +60,8 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\M
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MimeKit.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\Newtonsoft.Json.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Buffers.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Memory.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Numerics.Vectors.dll
@@ -72,6 +75,8 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\S
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Web.WebPages.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Web.WebPages.Razor.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\WebGrease.dll
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.pdb
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\BouncyCastle.Cryptography.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\EntityFramework.SqlServer.xml
@@ -81,6 +86,8 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\M
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MimeKit.pdb
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MimeKit.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\MimeKit.dll.config
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.xml
+C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Buffers.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Memory.xml
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\System.Numerics.Vectors.xml
@@ -108,10 +115,3 @@ C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\D
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.csproj.CopyComplete
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.dll
 C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\obj\Debug\WorkFlowX.pdb
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.dll
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.dll
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.xml
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\PagedList.Mvc.xml
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.dll
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.pdb
-C:\Users\danie\OneDrive\Documents\SEGUNDO\PROYECTO DAM\WorkFlowX\WorkFlowX\bin\AutoMapper.xml

@@ -19,5 +19,10 @@ namespace WorkFlowX.Models
         public string CompanyCountry { get; set; }
         public string CompanyCity { get; set; }
         public DateTime? RegisterDate { get; set; }
+
+        #region Collections
+        public List<User> Users { get; set; }
+        public List<Project> Projects { get; set; }
+        #endregion
     }
 }

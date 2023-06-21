@@ -26,12 +26,13 @@ namespace WorkFlowX.Models
         public string UserPhone { get; set; }
         public string Gender { get; set; }
         public DateTime? Birthdate { get; set; }
+        public int? TeamId { get; set; }
 
 
         #region Navigations
         public Role Role { get; set; }
-
         public Company Company { get; set; }
+        public Team Team { get; set; }
         #endregion
     }
 }
