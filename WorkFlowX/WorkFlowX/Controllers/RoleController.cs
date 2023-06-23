@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WorkFlowX.Data;
+using WorkFlowX.Filters;
 using WorkFlowX.Models;
 using WorkFlowX.Models.Dtos;
 
@@ -21,6 +22,7 @@ namespace WorkFlowX.Controllers
             _context.Database.CreateIfNotExists();
         }
         // GET: Role
+        [AuthorizeUser(license: 10)]
         public ActionResult Index(int? pageSize, int? page)
         {
             var rolesList = _context.Roles.Include("Licenses").ToList();
@@ -31,6 +33,7 @@ namespace WorkFlowX.Controllers
         }
 
         // GET: Role/Details/5
+        [AuthorizeUser(license: 8)]
         public ActionResult Details(int id)
         {
             var role = _context.Roles.Include("Licenses.Area").FirstOrDefault(r => r.Id == id);
@@ -39,6 +42,7 @@ namespace WorkFlowX.Controllers
         }
 
         // GET: Role/Create
+        [AuthorizeUser(license: 6)]
         public ActionResult Create()
         {
             var licenses = _context.Licenses.Include("Area").ToList();
@@ -77,6 +81,7 @@ namespace WorkFlowX.Controllers
         }
 
         // GET: Role/Edit/5
+        [AuthorizeUser(license: 7)]
         public ActionResult Edit(int id)
         {
             var roleDTO = Mapper.Map<RoleDTO>(_context.Roles.Include("Licenses.Area").FirstOrDefault(r => r.Id == id));
@@ -113,6 +118,7 @@ namespace WorkFlowX.Controllers
         }
 
         // GET: Role/Delete/5
+        [AuthorizeUser(license: 9)]
         public ActionResult Delete(int id)
         {
             var roleDto = Mapper.Map<RoleDTO>(_context.Roles.Include("Licenses.Area").FirstOrDefault(r => r.Id == id));
@@ -137,6 +143,7 @@ namespace WorkFlowX.Controllers
             }
         }
 
+        [AuthorizeUser(license: 10)]
         public ActionResult GetLicensesFromRoleId(int? roleId)
         {
             var licenses = roleId != null ? _context.Roles.Include("Licenses.Area").FirstOrDefault(r => r.Id == roleId).Licenses : null;

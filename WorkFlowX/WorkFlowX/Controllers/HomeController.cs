@@ -21,7 +21,7 @@ namespace WorkFlowX.Controllers
         {
             var currentUser = (User)Session["User"];
             var userTeam = _context.Teams.Include("Users").FirstOrDefault(t => t.Users.Any(u => u.Id == currentUser.Id));
-            ViewBag.Tasks = _context.Tasks.Include("Project").Include("User").Include("Project.Teams").Where(t => t.Project.Teams.Any(tm => tm.Id == userTeam.Id)).OrderBy(t => t.EndDate).Take(5).ToList();
+            ViewBag.Tasks = _context.Tasks.Include("Project").Include("User").Include("Project.Teams").Where(t => t.Project.Teams.Any(tm => tm.Id == userTeam.Id)).OrderBy(t => t.EndDate).Take(3).ToList();
             return View();
         }
 

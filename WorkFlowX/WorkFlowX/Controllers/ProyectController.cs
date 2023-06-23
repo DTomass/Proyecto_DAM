@@ -35,7 +35,7 @@ namespace WorkFlowX.Controllers
             var userTeam = _context.Teams.FirstOrDefault(t => t.Users.Any(u => u.Id == currentUser.Id));
             var proyectsList = _context.Projects.Include("Tasks").FirstOrDefault(p => p.Id == projectId).Tasks.ToList();
             page = pageSize < proyectsList.Count() ? page ?? 1 : 1;
-            pageSize = pageSize ?? 10;
+            pageSize = pageSize ?? 5;
             ViewBag.PageSize = pageSize;
             return View(proyectsList.ToPagedList(page.Value, pageSize.Value));
         }
@@ -128,7 +128,7 @@ namespace WorkFlowX.Controllers
         {
             try
             {
-                _context.Projects.Remove(_context.Projects.Include("Teams").Include("Tasks").FirstOrDefault(p => p.Id == id));
+                _context.Projects.Remove(_context.Projects.Include("Tasks").FirstOrDefault(p => p.Id == id));
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");

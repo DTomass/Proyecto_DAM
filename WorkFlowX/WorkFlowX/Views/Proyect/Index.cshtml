@@ -100,14 +100,14 @@
                             @foreach (var project in Model)
                             {
                                 <tr>
-                                    <td>@project.Name</td>
-                                    <td>@project.Description</td>
-                                    <td>@project.StartDate</td>
-                                    <td>@project.EndDate</td>
-                                    <td>@project.ExpectedEndDate</td>
-                                    <td>@project.Budget</td>
-                                    <td>@project.ActualCost</td>
-                                    <td>@project.Company.CompanyName</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.Name</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.Description</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.StartDate</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.EndDate</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.ExpectedEndDate</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.Budget</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.ActualCost</td>
+                                    <td onclick="location.href='@Url.Action("ProjectTasksList", "Proyect", new { projectId = project.Id })';" style="cursor: pointer;">@project.Company.CompanyName</td>
                                     <td class="d-flex">
                                         <a class="btn btn-primary mr-1" href="@Url.Action("Details", "Proyect", new { id = project.Id })"><i class='fas fa-eye'></i></a>
                                         <a class="btn btn-warning mr-1" href="@Url.Action("Edit", "Proyect", new { id = project.Id })"><i class='fas fa-pencil-alt'></i></a>

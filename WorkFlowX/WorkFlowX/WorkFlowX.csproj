@@ -182,6 +182,7 @@
     <Compile Include="Models\DtoMail.cs" />
     <Compile Include="Models\Dtos\LicenseDTO.cs" />
     <Compile Include="Models\Dtos\RoleDTO.cs" />
+    <Compile Include="Models\Enums\TaskPriorityEnum.cs" />
     <Compile Include="Models\Enums\TaskStatusEnum.cs" />
     <Compile Include="Models\Enums\TeamStatusEnum.cs" />
     <Compile Include="Models\License.cs" />
@@ -2388,6 +2389,10 @@
     <Content Include="Views\Proyect\Edit.cshtml" />
     <Content Include="Views\Proyect\Delete.cshtml" />
     <Content Include="Views\Proyect\ProjectTasksList.cshtml" />
+    <Content Include="Views\Task\Details.cshtml" />
+    <Content Include="Views\Task\Create.cshtml" />
+    <Content Include="Views\Task\Edit.cshtml" />
+    <Content Include="Views\Task\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,7 +16,7 @@ namespace WorkFlowX.Models
         public DateTime? EndDate { get; set; }
         public DateTime? ExpectedEndDate { get; set; }
         public TaskStatusEnum? Status { get; set; }
-        public int? Priority { get; set; }
+        public TaskPriorityEnum? Priority { get; set; }
         public string Comment { get; set; }
         public int UserId { get; set; }
 

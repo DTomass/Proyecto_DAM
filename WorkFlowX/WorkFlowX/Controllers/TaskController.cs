@@ -32,22 +32,29 @@ namespace WorkFlowX.Controllers
         // GET: Task/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var task = _context.Tasks.Include("Project").Include("Project.Teams").FirstOrDefault(t => t.Id == id);
+            return View(task);
         }
 
         // GET: Task/Create
-        public ActionResult Create()
+        public ActionResult Create(int projectId)
         {
+            ViewBag.pId = projectId;
             return View();
         }
 
         // POST: Task/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(int projectId, Task task)
         {
             try
             {
-                // TODO: Add insert logic here
+                var currentUser = (User)Session["User"];
+                task.ProjectId = projectId;
+                task.StartDate = DateTime.Now;
+                task.UserId = currentUser.Id;
+                _context.Tasks.Add(task);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -60,16 +67,28 @@ namespace WorkFlowX.Controllers
         // GET: Task/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var task = _context.Tasks.Include("Project").Include("Project.Teams").FirstOrDefault(t => t.Id == id);
+            return View(task);
         }
 
         // POST: Task/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Task task)
         {
             try
             {
-                // TODO: Add update logic here
+                var currentTask = _context.Tasks.Include("Project").Include("Project.Teams").FirstOrDefault(t => t.Id == id);
+                currentTask.Name = task.Name;
+                currentTask.Description = task.Description;
+                currentTask.EndDate = task.EndDate;
+                currentTask.ProjectId = task.ProjectId != 0 ? task.ProjectId : currentTask.ProjectId;
+                currentTask.StartDate = task.StartDate;
+                currentTask.Status = task.Status;
+                currentTask.UserId = task.UserId != 0 ? task.UserId : currentTask.UserId;
+                currentTask.ExpectedEndDate = task.ExpectedEndDate;
+                currentTask.Priority = task.Priority;
+                currentTask.Comment = task.Comment;
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -82,7 +101,9 @@ namespace WorkFlowX.Controllers
         // GET: Task/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var task = _context.Tasks.FirstOrDefault(t => t.Id == id);
+
+            return View(task);
         }
 
         // POST: Task/Delete/5
@@ -91,7 +112,9 @@ namespace WorkFlowX.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var deletedTask = _context.Tasks.FirstOrDefault(t => t.Id == id);
+                _context.Tasks.Remove(deletedTask);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }

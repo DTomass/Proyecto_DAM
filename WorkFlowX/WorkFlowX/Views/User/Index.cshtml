@@ -9,11 +9,29 @@
     <link rel="stylesheet" type="text/css" href="~/Content/PagedList.css" />
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            @Html.ActionLink("WORKFLOWX", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Users", "Index", "User", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Roles", "Index", "Role", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Companies", "Index", "Company", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Log out", "Logout", "Start", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container-fluid">
         <h2>Users</h2>
         <a class="btn btn-success" href="@Url.Action("Register", "Start")"><i class='fas fa-user-plus'></i></a> <!-- Enlace para crear un nuevo usuario -->
         <br />
-        @using (Html.BeginForm("Index", "User", FormMethod.Get)){
+        @using (Html.BeginForm("Index", "User", FormMethod.Get))
+        {
             <div class="row no-gutters">
                 <div class="col-1">
                     <select name="pageSize" id="pageSize" class="form-control">
@@ -27,7 +45,7 @@
                     <input type="submit" value="Apply" class="btn btn-primary" />
                 </div>
             </div>
-            }
+        }
         <div class="mb-0">
             <table class="table table-responsive table-hover mb-0">
                 <thead>
@@ -60,7 +78,7 @@
                                 {
                                     <i class="fa-solid fa-xmark" style="color: #ff0000;"></i> <!-- Muestra una x si NeedConfirmation es false -->
                                 }
-                                                    </td>
+                            </td>
                             <td class="text-center">
                                 @if (user.HasConfirmation)
                                 {
